@@ -4,3 +4,23 @@
 
 # cmake
 cmake-build-debug/
+*.filters
+src/cpp/lesson4/lesson4.vcxproj
+*.opendb
+*.db
+*.sln
+src/cpp/lesson4/Debug/vc140.pdb
+*.idb
+*.obj
+*.tlog
+*.pdb
+*.ilk
+src/cpp/lesson4/Debug/lesson4.log
+*.exe
+src/cpp/lesson4/.vs/lesson4/v14/.suo
+*.vcxproj
+matrix/matrix/matrix.h
+matrix/matrix/main.cpp
+matrix/matrix/matrix.cpp
+matrix/.vs/matrix/v14/.suo
+matrix/matrix/Debug/matrix.log
