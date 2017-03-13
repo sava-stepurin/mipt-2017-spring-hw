@@ -82,14 +82,19 @@ BigInt add_sum(const BigInt &a, const BigInt &b) {
 	BigInt res(a);
 	int rest = 0;
 	int sum = 0;
-	for (int i = 0; i < b.size; i++) {
-		sum = res.values[i] + b.values[i];
-		res.values[i] = rest + sum % 1000;
-		rest = sum / 1000;
-	}
-	if (rest > 0) {
-		res.resize(res.size + 1);
-		res.values[res.size - 1] = rest;
+	for (int i = 0; i < b.size || rest != 0; i++) {
+		sum = res.values[i];
+		if (i < b.size) {
+			sum += b.values[i];
+		}
+		else {
+			if (i >= a.size) {
+				res.resize(res.size + 1);
+				res.values[i] = 0;
+			}
+		}
+		res.values[i] = (sum + rest) % 1000;
+		rest = (sum + rest) / 1000;
 	}
 	return res;
 }
