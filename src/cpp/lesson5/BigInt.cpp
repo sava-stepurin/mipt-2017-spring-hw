@@ -111,16 +111,20 @@ BigInt operator+(const BigInt &a, const BigInt &b) {
 BigInt operator-(const BigInt &a, const BigInt &b) {
 	BigInt res(a);
 	int temp = 0;
-	for (int i = 0; i < b.size; i++) {
-		res.values[i] -= temp;
-		if (res.values[i] < b.values[i]) {
+	for (int i = 0; i < b.size || temp != 0; i++) {
+		int add = 0;
+		if (i < b.size) {
+			add = b.values[i];
+		}
+		if (res.values[i] < add + temp) {
 			res.values[i] += 1000;
+			res.values[i] -= add + temp;
 			temp = 1;
 		}
 		else {
+			res.values[i] -= add + temp;
 			temp = 0;
 		}
-		res.values[i] -= b.values[i];
 	}
 	res.delete_nulls();
 	return res;
